@@ -10,6 +10,7 @@
     tools:context=".MainActivity">
 
 
+
     <ImageButton
 
         android:id="@+id/spela"
@@ -44,6 +45,19 @@
         android:background="@drawable/rewind_back"
         android:gravity="center_horizontal"
         android:text="play" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/spela">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/dambora"
+            android:id="@+id/bakgrund"
+            />
+    </FrameLayout>
 
 
 </RelativeLayout>

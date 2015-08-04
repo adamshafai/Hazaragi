@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shafaisoft.hazaragi">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    //this permission when users phone get lock and efter unlocking
+    //the player should lunch and continue
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
