@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <ImageButton
+
+        android:id="@+id/spela"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/forward"
+        android:gravity="center_horizontal"
+        android:text="play" />
+
+    <ImageButton
+
+        android:id="@+id/spela_fram"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/spela"
+        android:layout_toRightOf="@+id/spela"
+        android:background="@drawable/forward_end"
+        android:gravity="center_horizontal"
+        android:text="play" />
+
+    <ImageButton
+
+        android:id="@+id/spela_bak"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/spela"
+        android:layout_toStartOf="@+id/spela"
+        android:background="@drawable/rewind_back"
+        android:gravity="center_horizontal"
+        android:text="play" />
+
+
+</LinearLayout>

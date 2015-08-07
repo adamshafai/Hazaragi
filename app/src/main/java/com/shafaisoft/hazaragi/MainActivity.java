@@ -1,8 +1,10 @@
 package com.shafaisoft.hazaragi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +14,8 @@ import android.widget.ImageButton;
 public class MainActivity extends Activity {
 
     private ImageButton bak, spela, fram,bakground;
-    private MediaPlayer sound;
+    private MediaPlayer mplayer;
+    final String MUSIC_DIR = "/music/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,9 @@ public class MainActivity extends Activity {
         fram = (ImageButton) findViewById(R.id.spela_fram);
         bakground = (ImageButton) findViewById(R.id.bakgrund);
 
-        sound = MediaPlayer.create(MainActivity.this, R.raw.bahar);
+
+
+        mplayer = MediaPlayer.create(MainActivity.this, R.raw.bahar);
 
 
 
@@ -32,7 +37,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                sound.start();
+
+                mplayer.start();
 
 
             }
@@ -42,7 +48,7 @@ public class MainActivity extends Activity {
         bak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sound.stop();
+                mplayer.stop();
             }
         });
 
@@ -51,18 +57,12 @@ public class MainActivity extends Activity {
         fram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sound.pause();
+                mplayer.pause();
             }
 
         });
 
 
-        spela.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
     }
 
