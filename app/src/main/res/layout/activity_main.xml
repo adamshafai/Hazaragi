@@ -16,11 +16,11 @@
         android:id="@+id/spela"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/forward"
         android:gravity="center_horizontal"
-        android:text="play" />
+        android:text="play"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
 
