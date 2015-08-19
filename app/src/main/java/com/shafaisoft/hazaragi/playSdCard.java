@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Environment;
-import android.preference.PreferenceActivity;
 import android.widget.ImageButton;
-
-import java.util.prefs.PreferenceChangeEvent;
 
 /**
  * Created by adamshafai on 06/08/15.
@@ -20,7 +17,7 @@ public class playSdCard extends Activity
 private MediaPlayer mplayer;
 protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.playsdcar);
+        setContentView(R.layout.playsdcard);
 
     bak = (ImageButton) findViewById(R.id.spela_bak);
     spela = (ImageButton) findViewById(R.id.spela);
