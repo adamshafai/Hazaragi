@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageButton;
-
+// testing git hub
 public class MainActivity extends Activity {
 
     private ImageButton bak, spela, fram,bakground;
