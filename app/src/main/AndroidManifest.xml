@@ -26,6 +26,14 @@
             android:label="Hazaragi">
 
         </activity>
+
+        <activity android:name=".ListFiles"
+            android:screenOrientation="portrait"
+            android:label="Choose a File"> <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
