@@ -7,91 +7,78 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
-
+ >
 
 
     <ImageButton
 
-        android:id="@+id/spela"
+        android:id="@+id/stop"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/stop"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="stop"
+        />
+    <ImageButton
+
+        android:id="@+id/play"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:background="@drawable/forward"
         android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:text="play"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        />
+
 
     <ImageButton
 
-        android:id="@+id/spela_fram"
+        android:id="@+id/forward"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/spela"
-        android:layout_toRightOf="@+id/spela"
         android:background="@drawable/forward_end"
-        android:gravity="center_horizontal"
-        android:text="play" />
+        android:text="play"
+        android:layout_below="@+id/frameLayout"
+        android:layout_toRightOf="@+id/play"
+        android:layout_toEndOf="@+id/play"/>
+
 
     <ImageButton
 
-        android:id="@+id/spela_bak"
+        android:id="@+id/backward"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/spela"
-        android:layout_toStartOf="@+id/spela"
         android:background="@drawable/rewind_back"
         android:gravity="center_horizontal"
-        android:text="play" />
+        android:text="play"
+        android:layout_toLeftOf="@+id/play"
+        android:layout_below="@+id/frameLayout"
+      />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sdcard"
-        android:id="@+id/button"
-        android:layout_gravity="left|top"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:id="@+id/button2"
-        android:layout_gravity="right|top"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/spela"
-        android:layout_below="@+id/button2"
+        android:layout_above="@+id/play"
+
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout">
+
         <ImageButton
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:background="@drawable/dambora"
             android:id="@+id/bakgrund"
-
-
-            />
+        />
 
 
     </FrameLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/button3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

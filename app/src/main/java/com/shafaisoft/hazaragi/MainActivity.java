@@ -2,8 +2,10 @@ package com.shafaisoft.hazaragi;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.Image;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
@@ -12,90 +14,120 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.nfc.NdefRecord.createUri;
 
 // testing git hub
 public class MainActivity extends Activity {
 
-
-    private ImageButton bak, spela, fram,bakground,sdcard;
+    private int pos = 0;
+    private ImageButton play, stop, forward, bakground, backward;
     private MediaPlayer mplayer;
-    //final String MUSIC_DIR = "/music/";
+    private int[] sounds = {R.raw.bahar,R.raw.bazi,R.raw.hamasaya,R.raw.pato,R.raw.shahrestani,
+                            R.raw.tanha,R.raw.tobamani};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bak = (ImageButton) findViewById(R.id.spela_bak);
-        // find the xml view by its id
-        spela = (ImageButton) findViewById(R.id.spela);
-        fram = (ImageButton) findViewById(R.id.spela_fram);
+        backward = (ImageButton) findViewById(R.id.backward);
+
+        play = (ImageButton) findViewById(R.id.play);
+        forward = (ImageButton) findViewById(R.id.forward);
         bakground = (ImageButton) findViewById(R.id.bakgrund);
-        Button sdcard = (Button) findViewById(R.id.button);
+        backward = (ImageButton) findViewById(R.id.backward);
+        stop = (ImageButton) findViewById(R.id.stop);
 
 
-        sdcard.setOnClickListener(new View.OnClickListener() {
+        play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "play from sd card", Toast.LENGTH_LONG).show();
-
-
-                startActivities(new Intent[]{new Intent(MainActivity.this, playSdCard.class)});
-
+                play.setVisibility(View.INVISIBLE);
+                soundPlay();
             }
         });
-        /*
-        Intent i = new Intent(this,playSdCard.class);
-        i.putExtra("directory",0);
-        startActivityForResult(i, 0);
-        */
 
-        spela.setOnClickListener(new View.OnClickListener()
-        {
+        backward.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
-                mplayer = MediaPlayer.create(MainActivity.this, R.raw.bahar);
-                mplayer.start();
-                mplayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()//when sound ends
-                {
-                    @Override
-                    public void onCompletion(MediaPlayer mp)
-                    {
-                        mplayer.release();// Release system resources
+
+                    if(pos ==0) {
+                        forward.setEnabled(true);
+                        backward.setEnabled(false);
+
                     }
-                });
+                else {
+                        soundStop();
+                        pos--;
+                        soundPlay();
+                        Toast.makeText(MainActivity.this,"The first song",Toast.LENGTH_SHORT).show();
+                        soundPlay(0);
 
 
+                    }
             }
-
         });
 
-        bak.setOnClickListener(new View.OnClickListener() {
+
+        forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mplayer.stop();
+                if (pos>=(sounds.length-1)){
+                    forward.setEnabled(false);
+                    backward.setEnabled(true);
+                    Toast.makeText(MainActivity.this, "Last song", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    soundStop();
+                    pos++;
+                    soundPlay();
+
+                }
             }
+
         });
 
-
-
-        fram.setOnClickListener(new View.OnClickListener() {
+        stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mplayer.pause();
+                soundStop();
+                play.setVisibility(View.VISIBLE);
+
             }
-
         });
+    }
 
+    public void soundPlay() {
+        //if(mplayer == null)
 
+        mplayer = MediaPlayer.create(this, sounds[pos]);
+        mplayer.setLooping(true);
+        mplayer.start();
+    }
 
+    public void soundStop()
+    {
+        if(mplayer !=null && mplayer.isPlaying()) {
+            mplayer.stop();
+            mplayer.release();
+        }
     }
 
 
+    public void soundPlay(int n) {
+        //if(mplayer == null)
 
+        mplayer = MediaPlayer.create(this, sounds[pos]);
+        mplayer.setLooping(true);
+        mplayer.start();
+    }
 }
-
