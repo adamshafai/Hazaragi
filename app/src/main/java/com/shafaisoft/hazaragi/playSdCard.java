@@ -21,10 +21,9 @@ public class playSdCard extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.playsdcard);
 
-    bak = (ImageButton) findViewById(R.id.spela_bak);
-    spela = (ImageButton) findViewById(R.id.spela);
-    fram = (ImageButton) findViewById(R.id.spela_fram);
-    bakground = (ImageButton) findViewById(R.id.bakgrund);
+    bak = (ImageButton) findViewById(R.id.backward);
+    spela = (ImageButton) findViewById(R.id.play);
+    fram = (ImageButton) findViewById(R.id.forward);
     /*
     Home.setOnClickListener(new View.OnClickListener() {
         @Override

@@ -42,7 +42,6 @@ public class MainActivity extends Activity {
 
         play = (ImageButton) findViewById(R.id.play);
         forward = (ImageButton) findViewById(R.id.forward);
-        bakground = (ImageButton) findViewById(R.id.bakgrund);
         backward = (ImageButton) findViewById(R.id.backward);
         stop = (ImageButton) findViewById(R.id.stop);
 
@@ -69,7 +68,8 @@ public class MainActivity extends Activity {
                         soundStop();
                         pos--;
                         soundPlay();
-                        Toast.makeText(MainActivity.this,"The first song",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,"The first song",
+                                Toast.LENGTH_SHORT).show();
                         soundPlay(0);
 
 
